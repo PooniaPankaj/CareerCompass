@@ -5,12 +5,12 @@
     font-size: 30px;
     font-weight: bolder;
     font-family: sans-serif;
-    background-color: rgb(129, 129, 215);
+    background-color: rgb(64, 64, 168);
     flex-grow: 9;
 }
 .main_class{
     display: flex;
     align-items: stretch;
     flex-direction: row;
-
+    width: 100vw;
 }

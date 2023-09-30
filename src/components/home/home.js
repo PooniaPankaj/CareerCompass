@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar/Sidebar.js';
 const home = () => {
   return (
     <div>
-        <Navbar/>
+        <Sidebar/>
 
     </div>
   )

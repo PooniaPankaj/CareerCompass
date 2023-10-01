@@ -15,11 +15,6 @@ export const SidebarData = [
         iconOpen : <RiIcons.RiArrowUpSFill/>
     },
     {
-        title: 'Profile',
-        path: '../profile',
-        icon : <BiIcons.BiFace/>
-    },
-    {
         title: 'Notification',
         path: '../Notification',
         icon : <RiIcons.RiNotification4Line/>

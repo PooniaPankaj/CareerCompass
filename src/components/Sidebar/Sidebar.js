@@ -6,7 +6,7 @@ import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import SubMenu from './Submenu';
 import { IconContext } from 'react-icons/lib';
-
+import Profile from '../Profile/Profile.js'
 import './Sidebar.css'
 
 const Nav = styled.div`
@@ -63,11 +63,13 @@ const Sidebar = () => {
                 <div className='navtext'>
                 <i><FaIcons.FaMountain size={30}/></i> CareerCompass
                 </div>
+                <div className='profile'>
+                    <Profile/>
+            </div>
 
-                <div className='dummy'>
-
-                </div>
+                
             </Nav>
+            
 
             <SidebarNav sidebar={sidebar}>
                 <SidebarWrap>

@@ -14,14 +14,16 @@ const SidebarLink = styled(Link)`
   font-size: 18px;
 
   &:hover {
-    background: rgb(64, 64, 168);;
+    background: white;
     border-left: 4px solid #632ce4;
     cursor: pointer;
+    color:rgb(102, 89, 186);
   }
 `;
 
 const SidebarLabel = styled.span`
   margin-left: 16px;
+  font-weight: 600;
 `;
 
 

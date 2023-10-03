@@ -10,9 +10,10 @@ import Profile from '../Profile/Profile.js'
 import './Sidebar.css'
 
 const Nav = styled.div`
-  background: rgb(129, 129, 215);
+  background: transparent;
   height: 80px;
   display: flex;
+  position:fixed;
   justify-content: flex-start;
   align-items: center;
   width:100%;
@@ -31,8 +32,9 @@ const NavIcon = styled(Link)`
   flex-grow:0;
 `;
 
-const SidebarNav = styled.nav`
-  background: rgb(129, 129, 215);
+const SidebarNav = styled.nav` 
+background-color: rgb(73, 170, 210,0.9);
+    border-right:white solid 2px;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -43,6 +45,7 @@ const SidebarNav = styled.nav`
   transition: 350ms;
   z-index: 10;
 `;
+
 
 const SidebarWrap = styled.div`
   width: 100%;
@@ -61,7 +64,7 @@ const Sidebar = () => {
 
                 
                 <div className='navtext'>
-                <i><FaIcons.FaMountain size={30}/></i> CareerCompass
+
                 </div>
                 <div className='profile'>
                     <Profile/>
@@ -71,7 +74,7 @@ const Sidebar = () => {
             </Nav>
             
 
-            <SidebarNav sidebar={sidebar}>
+            <SidebarNav sidebar={sidebar} className='side_bar_cont' >
                 <SidebarWrap>
                     <NavIcon to='#'>
                         <AiIcons.AiOutlineClose onClick={showSidebar} />

@@ -1,8 +1,68 @@
 .main_page_container{
-    margin: 0px !important;
-    padding: 0px !important;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: url("home_page_img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* display: flex;
+    flex-direction: row; */
+}
+.main_page_content{
     display: flex;
     flex-direction: column;
+    /* border: black solid; */
+    margin-left: 40%;
+    /* padding-top: 20%; */
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.website_name_heading h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 4rem;
+    color: white;
+}
+.website_placed_data{
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+}
+.register_button{
+    display: flex;
+    margin-top: 80px;
+    font-family: 'Lato' ,sans-serif;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+.register_button:hover{
+    color: #4070F4 !important;
+}
+.website_imp_data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+.data_cont{
+    font-size: 2rem;
+    color: white;
+}
+.title_cont{
+    color: #4070F4;
+    font-size: 1.5rem;
+}
+.main_page_container .first_page_cont{
+    /* background-image: url("https://img.freepik.com/free-photo/top-view-career-written-note-with-stickers-notepad-white-background-job-office-copybook-salary-college-business-color_179666-19734.jpg"); */
+    width: 100px;
+    height: 200px;
 }
 .placement_container{
     width: 100%;
@@ -27,11 +87,11 @@
     background-size: cover;
     width: 50%;
     height: 100%;
-    /* border: black solid; */
+
 }
 .placement_records{
     width: 50%;
-    /* border: black solid; */
+
     text-align: center;
     background-color: rgb(150, 184, 215);
     color: white;
@@ -75,21 +135,8 @@
         
     }
 
-.dropdownItem {
-    width: 85%;
-    height: 200px;
-    border: black solid;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-.dropdownItem  .Company_logos {
-    width: 100%;
-    height: 100%;
-    /* background-image: url("https://play-lh.googleusercontent.com/aFWiT2lTa9CYBpyPjfgfNHd0r5puwKRGj2rHpdPTNrz2N9LXgN_MbLjePd1OTc0E8Rl1=w240-h480-rw"); */
-    
-}
+
+
 
 
 .companies_cont{
@@ -99,9 +146,15 @@
     font-family: 'Poopins',sans-serif;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #EFEFEF;
+}
+.companies_heading{
+    font-family: 'Lato', sans-serif;
+    font-size: 3rem;
+    padding-top: 70px;
 }
 .card_-image{
     position: relative;
@@ -117,16 +170,22 @@
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #4070F4;
+    border: 4px solid rgb(73, 170, 210);;;
 }
  .card_{
-    /* width: 320px; */
+    width: 320px;
 
     border-radius: 25px;
     background-color: #FFF;
+    margin: 10px;
  }
 .slide-content{
     margin: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+.card_-wrapper{
+    display: flex;
 }
 .image-content , .card_-content{
     padding: 10px 14px;
@@ -145,7 +204,7 @@
 }
 .company_name{
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     color: #333;
 
 }
@@ -159,14 +218,17 @@
     font-size: 16px;
     color: #FFF;
     padding: 8px 16px;
-    background-color: #4070F4;
+    /* background-color: #4070F4;
+     */
+     background-color: rgb(73, 170, 210);;
     border-radius: 6px;
     margin: 14px;   
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .company_button:hover{
-    background: #265DF2;
+    /* background: #265DF2; */
+    background: rgb(73, 170, 210);;;
 }
 .overlay{
     position: absolute;
@@ -174,7 +236,9 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #4070F4;
+    /* background-color: #4070F4;
+     */
+     background-color: rgb(73, 170, 210);;
     border-radius: 25px 25px 0 25px;
 
 }
@@ -187,7 +251,8 @@
 
     height: 40px;
     width: 40px;
-    background-color: #4070F4;
+    /* background-color: #4070F4; */
+    background-color: rgb(73, 170, 210);;
 
 }
 .overlay::after{
@@ -197,9 +262,8 @@
 .slide-container{
     max-width: 1120px;
     width: 100%;
-    background-color: gray;
-    padding: 40px 0;
 
+    padding: 40px 0;
 }
 
 

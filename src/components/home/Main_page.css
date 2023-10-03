@@ -1,0 +1,207 @@
+.main_page_container{
+    margin: 0px !important;
+    padding: 0px !important;
+    display: flex;
+    flex-direction: column;
+}
+.placement_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    /* border: black solid; */
+}
+@media  screen and (max-width: 900px) {
+.placement_container{
+    flex-direction: column;
+}
+.placement_photo{
+    width: 100%;
+    height: 50%;
+}
+    
+}
+.placement_photo{
+    background-image: url("https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/3/Desk/2020_3$largeimg_109317230.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+    /* border: black solid; */
+}
+.placement_records{
+    width: 50%;
+    /* border: black solid; */
+    text-align: center;
+    background-color: rgb(150, 184, 215);
+    color: white;
+    font-family: "Poppins",sans-serif;
+}
+.placement_records h1{
+    font-weight: 600;
+    font-size: 3rem;
+    color: gray;
+    padding: auto;
+}
+.placement_records .placed_data{
+    padding-bottom: 40px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+.placement_records .avg_salary{
+    padding-bottom: 40px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+.placement_records .Median_salary{
+    padding-bottom: 40px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+@media  screen and (max-width: 900px) {
+    .placement_container{
+        flex-direction: column;
+        height: 1000px;
+    }
+    .placement_photo{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .placement_records{
+        width: 100%;
+        height: 100%;
+    }
+        
+    }
+
+.dropdownItem {
+    width: 85%;
+    height: 200px;
+    border: black solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.dropdownItem  .Company_logos {
+    width: 100%;
+    height: 100%;
+    /* background-image: url("https://play-lh.googleusercontent.com/aFWiT2lTa9CYBpyPjfgfNHd0r5puwKRGj2rHpdPTNrz2N9LXgN_MbLjePd1OTc0E8Rl1=w240-h480-rw"); */
+    
+}
+
+
+.companies_cont{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poopins',sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EFEFEF;
+}
+.card_-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #FFF;
+    padding: 3px;
+    border-radius: 50%;
+    
+}
+.card_-image .card_-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070F4;
+}
+ .card_{
+    /* width: 320px; */
+
+    border-radius: 25px;
+    background-color: #FFF;
+ }
+.slide-content{
+    margin: 0 40px;
+}
+.image-content , .card_-content{
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.image-content{
+    row-gap: 5px;
+    position: relative;
+    padding: 25px 0;
+
+
+    
+}
+.company_name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+
+}
+.company_desc{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+.company_button{
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    margin: 14px;   
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.company_button:hover{
+    background: #265DF2;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070F4;
+    border-radius: 25px 25px 0 25px;
+
+}
+.overlay::before,
+.overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+
+    height: 40px;
+    width: 40px;
+    background-color: #4070F4;
+
+}
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+}
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+    background-color: gray;
+    padding: 40px 0;
+
+}
+
+
+
+

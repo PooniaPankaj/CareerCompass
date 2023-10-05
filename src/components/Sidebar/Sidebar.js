@@ -21,7 +21,7 @@ const Nav = styled.div`
 
 
 const NavIcon = styled(Link)`
-    color:white;
+    color:#4070F4;
   margin-left: 2rem;
   font-size: 2rem;
   height: 80px;

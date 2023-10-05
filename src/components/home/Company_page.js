@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./Main_page.css"
 import "./swiper-bundle.min.css";
 import './Main_page';
@@ -47,14 +47,36 @@ const photos = [
 
 
 const Company_page = () => {
+    useEffect(() => {
+      window.addEventListener('scroll',companyreveal);
+      function companyreveal(){
+        var reveal = document.querySelectorAll('.companyreveal');
+        for(var i = 0;i<reveal.length;i++){
+            var windowheight = window.innerHeight;
+            var revealTop = reveal[i].getBoundingClientRect().top;
+            var revealPoint = 150;
+            if (revealTop <windowheight - revealPoint){
+                reveal[i].classList.add('companyActive');
+            }
+            else{
+                reveal[i].classList.remove('companyActive');
+            }
+        }
+      }
+    
+      return () => {
+        window.removeEventListener('scroll',companyreveal);
+      }
+    });
+    
     return (
-        <div className='companies_cont'>
+        <div className='companies_cont '>
             <div className="companies_heading">
                 Top Recruiter!
             </div>
             <div className="slide-container ">
-                <div className="slide-content container">
-                    <div className="row">
+                <div className="slide-content container ">
+                    <div className="row companyreveal">
                         
                         {photos.map((element) => {
                             return <div className='col-md-4 h-100  ' key={element.src}>

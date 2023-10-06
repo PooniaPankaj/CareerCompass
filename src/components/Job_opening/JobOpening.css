@@ -1,0 +1,76 @@
+
+.notification_cont{
+    background-color: #EFEFEF;
+    
+     /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding: 0px;
+    margin: 0px;
+    /* height: 100vh;
+    width: 100vw; */
+    /* border: black solid; */
+}
+.notification_cont_no_job{
+    background-color: #EFEFEF;
+    
+     /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Lato',sans-serif;
+    /* border: black solid; */
+}
+.no_job_text{
+    padding:  10px;
+    font-size: 1.5rem;
+}
+.notification_heading{
+    padding-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+.notification_head_text{
+
+    font-family: 'Lato' , sans-serif;
+    font-size: 1.4rem;
+    padding-left: 2px;
+}
+.notification_details_cont{
+    padding: 10px;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+}
+.notification_details_text{
+    display: flex;
+    flex-direction: row;
+}
+.notification_headline{
+    font-family: 'Lato' ,sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.apply_button_cont{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.apply_button{
+    align-items: center;
+    width: fit-content;
+    padding: 3px 10px;
+}

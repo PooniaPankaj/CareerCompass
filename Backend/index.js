@@ -1,7 +1,10 @@
 import express from "express"; // just specify type = "module" in json file to avoid the error  ES6
 import dotenv from "dotenv";
 import authRoute from './routes/auth.js';
+import companyRoute from './routes/company.js';
+import userRoute from './routes/User.js';
 import mongoose from 'mongoose';
+import cookieParser from "cookie-parser";
 
 
 
@@ -15,8 +18,7 @@ const connect = async ()=>{
  
         await mongoose.connect(process.env.MONGO);
         
-        // await  mongoose.connect("mongodb+srv://HotelHub:HotelHub@hotelbooking.xssrise.mongodb.net/?retryWrites=true&w=majority");
-        
+
         console.log("Connected to mongoDB!")
     }
     catch(error){
@@ -33,12 +35,12 @@ mongoose.connection.on("connected",()=>{
 })
 
 
-
+app.use(cookieParser())
 app.use(express.json());
 
 app.use("/api/auth",authRoute);
-app.use("api/auth",authRoute);
-
+app.use("/api/company",companyRoute);
+app.use("/api/user",userRoute);
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500

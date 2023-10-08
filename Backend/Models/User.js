@@ -13,6 +13,12 @@ const UserSchema = new mongoose.Schema({
         required:true,
         unique:true,
     },
+    phoneNumer:{
+        type:String,
+        required:true,
+        uique:true,
+    }
+    ,
     batch:{
         type:Number,
         required:true,

@@ -136,3 +136,110 @@
     color: black;
     transition: var(--speed);
   }
+.my_profile_cont{
+  border: black solid;
+
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  border-radius: 10px;
+  background-color: white;
+}
+.profile_photo_cont{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  
+}
+
+.myprofilewholecont{
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: flex-start;
+  background-image: url("./human-resources-concept-with-hand.jpg");
+}
+.first_name_last_name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 35%;
+}
+.first_name_cont{
+  width: 40%;
+  background-color: white;
+  border: #4070F4 solid 3px;
+  border-radius: 8px;
+}
+.first_name_cont h6,
+.college_cont h6,
+.inside_cont h6,
+.inside_cont2 h6{
+  font-size: 10px;
+  color: gray;
+  padding: 0px;
+  font-weight: 600;
+  padding-top: 2px;
+  padding-left: 2px;
+  font-family: 'Lato',sans-serif;
+}
+.first_name_cont h3,
+.college_cont h3,
+.inside_cont h3,
+.inside_cont2 h3{
+  color: #4070F4 !important;
+  padding: 0px;
+  font-family: 'Lato',sans-serif;
+
+}
+.college_cont{
+  width: 35%;
+  background-color: white;
+  border: #4070F4 solid 3px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.inside_cont{
+  width: 30%;
+  background-color: white;
+  border: #4070F4 solid 3px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+.inside_cont2{
+  width: 100%;
+  background-color: white;
+  border: #4070F4 solid 3px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+.edit_profile_button{
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato',sans-serif;
+}
+
+.edit_profile_button a{
+  padding: 10px 15px;
+  transition: all 0.6s ease-in-out;
+}
+.glass_effect{
+  color: #4070F4 !important;
+}
+.edit_profile_button a:hover{
+  scale: 1.1;
+  color: #4070F4;
+  background-color: white;
+}
+

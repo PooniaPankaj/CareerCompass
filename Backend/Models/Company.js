@@ -32,6 +32,14 @@ const CompanySchema = new mongoose.Schema({
     batch:{
         type:Number,
         required:true,
+    },
+    branch:{
+        type:[String],
+        required:true,
+    },
+    lastdatetoapply:{
+        type:String,
+        required:true,
     }
 })
 export default mongoose.model("Company",CompanySchema);

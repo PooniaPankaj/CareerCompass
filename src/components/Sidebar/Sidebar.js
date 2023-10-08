@@ -33,8 +33,10 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav` 
-background-color: rgb(73, 170, 210,0.9);
-    border-right:white solid 2px;
+//background-color: rgb(73, 170, 210,0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    //border-right:white solid 2px;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -42,7 +44,7 @@ background-color: rgb(73, 170, 210,0.9);
   position: fixed;
   top: 0;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
-  transition: 350ms;
+  transition: 500ms;
   z-index: 10;
 `;
 

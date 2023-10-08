@@ -43,6 +43,7 @@ const photos = [
         details:"",
         src_link : ""
     },
+    
 ];
 
 

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const SidebarLink = styled(Link)`
   display: flex;
   color: #e1e9fc;
+
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -12,12 +13,13 @@ const SidebarLink = styled(Link)`
   height: 60px;
   text-decoration: none;
   font-size: 18px;
-
+  font-family:'Lato', sans-serif;
+  transition: all 0.2s ease-in;
   &:hover {
     background: white;
-    border-left: 4px solid #632ce4;
+    border-left: 4px solid #4070F4;
     cursor: pointer;
-    color:rgb(102, 89, 186);
+    color:#4070F4
   }
 `;
 

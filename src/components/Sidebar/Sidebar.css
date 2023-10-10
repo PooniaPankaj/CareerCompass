@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: flex-start;
 }
-.navtext{
+/* .navtext{
     
     display: flex;
     font-family: 'Lato',sans-serif;
@@ -19,10 +19,23 @@
     flex-basis: 140%;
     
     
-}
-.dummy{
+} */
+/* .dummy{
     flex-basis: 10%;
-}
+} */
 .navtext i{
     padding-right: 5px;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 16%;
+}
+.navButton{
+    margin: 5px;
+    font-family: 'Lato',sans-serif;
+    color: #4070F4;
+    background: linear-gradient(var(--x),#00ccff,#0e1538,#d400d4);
 }

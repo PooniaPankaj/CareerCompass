@@ -4,15 +4,17 @@ import { createError } from '../Utils/error.js';
 import jwt from "jsonwebtoken"
 
 export const register = async(req,res,next)=>{
-
+    console.log(req.body);
     try{
+        console.log(req.body);
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
-        const Admin = (req.body.token == process.env.AdminToken ? 1 :0);
+        const Admin = (req.body.token === process.env.AdminToken ? 1 :0);
 
         const newUser = new User({
             firstname:req.body.firstname,
             lastname:req.body.lastname,
+            phoneNumber:req.body.phoneNumber,
             email:req.body.email,
             batch:req.body.batch,
             branch:req.body.branch,
@@ -22,6 +24,7 @@ export const register = async(req,res,next)=>{
         })
 
         await newUser.save();
+        console.log(newUser);
         const token = jwt.sign({id:newUser._id ,admin:newUser.admin},process.env.JWT);
         const {password , admin , ...otherDetails} = newUser._doc;
         // console.log(token);

@@ -25,6 +25,16 @@ const details= [
         link_to_apply: "bdfbidjfbvdbv",
         applied: true,
     },
+    {
+        company_name: "google",
+        job_role: "Software engineer intern",
+        job_description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        monthly_stipend: "114k",
+        job_location: "Banglore",
+        skills_needed: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        link_to_apply: "bdfbidjfbvdbv",
+        applied: true,
+    },
 ]
 
 

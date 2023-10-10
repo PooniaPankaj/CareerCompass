@@ -33,7 +33,7 @@
   
   .menu-trigger img{
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 20px;
     height: 40px;
     width: 40px;
@@ -166,6 +166,8 @@
   align-items:center;
   justify-content: flex-start;
   background-image: url("./human-resources-concept-with-hand.jpg");
+  background-size: cover;
+    background-attachment: fixed;
 }
 .first_name_last_name{
   display: flex;

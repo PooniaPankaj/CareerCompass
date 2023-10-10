@@ -9,6 +9,9 @@
     justify-content:center;
     padding: 0px;
     margin: 0px;
+    background-image: url("./job_opening2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     /* height: 100vh;
     width: 100vw; */
     /* border: black solid; */
@@ -38,11 +41,15 @@
     display: flex;
     flex-direction: row;
 }
+.notification_icon{
+    color: #EFEFEF;
+}
 .notification_head_text{
 
     font-family: 'Lato' , sans-serif;
     font-size: 1.4rem;
     padding-left: 2px;
+    color: #EFEFEF;
 }
 .notification_details_cont{
     padding: 10px;

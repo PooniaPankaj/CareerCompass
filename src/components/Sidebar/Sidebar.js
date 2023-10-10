@@ -1,6 +1,6 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
@@ -8,13 +8,13 @@ import SubMenu from './Submenu';
 import { IconContext } from 'react-icons/lib';
 import Profile from '../Profile/Profile.js'
 import './Sidebar.css'
-
+import { AuthContext } from '../Context/AuthContext';
 const Nav = styled.div`
   background: transparent;
   height: 80px;
   display: flex;
   position:fixed;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width:100%;
 `;
@@ -36,6 +36,8 @@ const SidebarNav = styled.nav`
 //background-color: rgb(73, 170, 210,0.9);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    border-right:0.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     //border-right:white solid 2px;
   width: 250px;
   height: 100vh;
@@ -56,6 +58,22 @@ const SidebarWrap = styled.div`
 const Sidebar = () => {
     const [sidebar, setsidebar] = useState(false);
     const showSidebar = () => setsidebar(!sidebar);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { loading, error, dispatch } = useContext(AuthContext);
+
+
+    const handleloginClick = () => {
+        navigate('/login');
+    }
+    const handleregisterClick = () => {
+        navigate('/register')
+    }
+
+    const handleLogoutclk = (e) => {
+        e.preventDefault();
+        dispatch({ type: "LOGOUT" })
+    }
 
     return (
         <>
@@ -64,17 +82,32 @@ const Sidebar = () => {
                     <FaIcons.FaBars onClick={showSidebar} />
                 </NavIcon>
 
-                
-                <div className='navtext'>
 
-                </div>
+
+                
+
                 <div className='profile'>
-                    <Profile/>
-            </div>
+                {user ?
+                    <div className="navItems">
+                        <button className="navButton btn btn-outline-light" onClick={handleLogoutclk}>
+                        Logout
+                    </button>
+                    </div>
+                     :
+                    <div className="navItems">
 
-                
+                        <button className='navButton btn btn-outline-light' onClick={handleregisterClick}>Register</button>
+                        <button className='navButton btn btn-outline-light' onClick={handleloginClick}>Login</button>
+
+                    </div>
+
+                }
+                    <Profile />
+                </div>
+
+
             </Nav>
-            
+
 
             <SidebarNav sidebar={sidebar} className='side_bar_cont' >
                 <SidebarWrap>

@@ -20,6 +20,7 @@
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.4",
     "nodejs": "^0.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "react-axios": "^2.0.6"
   }
 }

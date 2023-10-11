@@ -1,8 +1,10 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import "./Main_page.css"
 import "./swiper-bundle.min.css";
 import './Main_page';
 import {Link} from 'react-router-dom';
+import axios from "axios";
+import useFetch from '../Hooks/UseFetch';
 // import "./swiper-bundle.min.js";
 const photos = [
     {
@@ -48,6 +50,16 @@ const photos = [
 
 
 const Company_page = () => {
+    const [Mydata, setMydata] = useState(photos)
+    const {data,loading,error} = useFetch(`/topRecruiter/getCompany`);
+    useEffect(() => {
+        if (data.length >0)
+            setMydata(data);
+    },[data])
+    
+    // if (data.length >0){
+    //     setMydata(data);
+    // }
     useEffect(() => {
       window.addEventListener('scroll',companyreveal);
       function companyreveal(){
@@ -79,7 +91,7 @@ const Company_page = () => {
                 <div className="slide-content container ">
                     <div className="row companyreveal">
                         
-                        {photos.map((element) => {
+                        {Mydata.map((element) => {
                             return <div className='col-md-4 h-100  ' key={element.src}>
                                 <CompanyItem key={element.src} details={element.details} src_link = {element.src_link} title={element.title} imageurl={element.src}  />
                             </div>

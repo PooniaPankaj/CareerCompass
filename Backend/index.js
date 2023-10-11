@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import authRoute from './routes/auth.js';
 import companyRoute from './routes/company.js';
 import userRoute from './routes/User.js';
+import notificationRoute from './routes/notification.js';
+import topRecruiter from './routes/topRecruiter.js';
+import Alumni from './routes/alumni.js';
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 
@@ -41,6 +44,10 @@ app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/company",companyRoute);
 app.use("/api/user",userRoute);
+app.use("/api/Notification",notificationRoute);
+app.use("/api/topRecruiter",topRecruiter);
+app.use("/api/alumni",Alumni);
+
 
 app.use((err,req,res,next)=>{
     const errorStatus = err.status || 500

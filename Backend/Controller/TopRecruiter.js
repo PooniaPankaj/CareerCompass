@@ -1,10 +1,19 @@
-import TopRecruiter from "../Models/TopRecruiter";
+import TopRecruiter from "../Models/TopRecruiter.js";
 
+
+export const getCompany = async(req,res,next)=>{
+    try {
+        const allcompany = await TopRecruiter.find();
+        res.status(200).json(allcompany);
+    } catch (error) {
+        next(error);
+    }
+}
 export const addCompany = async(req,res,next)=>{
     try {
         const newCompany = new TopRecruiter({
-            name:req.body.name,
-            photo:req.body.photo,
+            title:req.body.title,
+            src:req.body.src,
             details:req.body.details,
             src_link:req.body.src_link,
         })

@@ -78,7 +78,7 @@ export const getUser = async(req,res,next)=>{
 export const updateUser = async(req,res,next)=>{
     try {
         const usr_ = await User.findById(req.params.id);
-        if (usr_.admin){
+        if (usr_.admin === 0){
             return next(createError(404,"Not allowed"));
         }
         const updatedUser = await User.findByIdAndUpdate(req.params.id,{$set:req.body},{new :true}); // it basically get id from the request params and we use mongodb set method to update the data and used new : true to set the updated data into the variable

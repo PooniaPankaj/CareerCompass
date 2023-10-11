@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 const topRecruiterSchema = new mongoose.Schema({
-    name:{
+    title:{
         type:String,
         required:true,
     },
-    photo:{
+    src:{
         type:String,
         required:true,
     },

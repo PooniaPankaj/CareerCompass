@@ -1,11 +1,20 @@
 
 import React, { useState, useEffect } from "react";
 import "./Alumni.css";
-import data from "./Data.js";
+import Data1 from "./Data.js";
+import useFetch from "../Hooks/UseFetch.js";
 
 const Slider = () => {
-  const [people] = useState(data);
+  const [people,setPeople] = useState(Data1);
   const [index, setIndex] = useState(0);
+
+  const {data,loading,error,reFetch} = useFetch(`/Alumni/getAlumni`);
+
+  useEffect(() => {
+    if (data.length >0)
+    setPeople(data);
+  }, [data])
+  
 
   useEffect(() => {
     const lastIndex = people.length - 1;

@@ -1,10 +1,10 @@
 import React from 'react'
-
+import Sidebar from "../Sidebar/Sidebar.js"
 const Notification = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+    <Sidebar/>
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext, useState } from "react"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 import * as FaIcons from 'react-icons/fa';
 import "./Register.css"
@@ -11,7 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
     const [error, setError] = useState(false);
-
+    const [msg, setmsg] = useState("")
     const [credentials, setCredentials] = useState({
         firstname: undefined,
         lastname:undefined,
@@ -34,7 +34,8 @@ const Register = () => {
             setLoading(true);
             const res = await axios.post("/auth/register",credentials)
             setLoading(false);
-            navigate("/login");
+            setmsg(res.message);
+            // navigate("/login");
             
         } catch (error) {
             setError(error);
@@ -60,7 +61,11 @@ const Register = () => {
                 
                 <input type="password" placeholder="Enter Password " id="password" name="password" onChange={handleChange} className="lInput"></input>
                 <button type="button" onClick={handleClick} className="btn btn-outline-light">Register</button>
-                {error && <span className="errormsg">{error.message}</span>}
+                <div className=''>or</div>
+                <Link   to='/login'>Login </Link>
+                {error && <span className="error_msg">{error.message}</span>}
+                {msg && <span className="success_msg">{msg}</span>}
+                
             </div>
 
         </div>

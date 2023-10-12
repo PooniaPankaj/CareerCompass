@@ -7,6 +7,7 @@ import Notification from './components/Notification/Notification.js';
 import JobOpening from './components/Job_opening/JobOpening.js';
 import MyProfile from './components/Profile/MyProfile';
 import Register from './components/Register/Register';
+import Email from './components/VerifyEmail/Email';
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
             
             <Route exact strict path="/notification" element={ <Notification /> } />
             <Route exact strict path='/JobOpening' element = {<JobOpening/>} />
+            <Route  exact strict path='/users/:id/verify/:token' element = {<Email/>} />
       </Routes>
     </div>
     

@@ -1,56 +1,72 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext,useState,useEffect } from 'react'
+
+import { Link ,useNavigate} from 'react-router-dom'
 import * as AiIcons from 'react-icons/ai';
 import './JobOpening.css'
 import Sidebar from '../Sidebar/Sidebar';
 import NoJob from './NoJob';
+import { AuthContext } from '../Context/AuthContext';
+import useFetch from '../Hooks/UseFetch';
 const details= [
     {
-        company_name: "Microsoft",
-        job_role: "Software engineer intern",
-        job_description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        monthly_stipend: "125k",
-        job_location: "Banglore",
-        skills_needed: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-        link_to_apply: "bdfbidjfbvdbv",
-        applied: false,
+        name: "Microsoft",
+        role: "Software engineer intern",
+        jobDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        stipend: "125k",
+        jobLocation: "Banglore",
+        skills: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        linkToApply: "bdfbidjfbvdbv",
+
     },
     {
-        company_name: "google",
-        job_role: "Software engineer intern",
-        job_description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        monthly_stipend: "114k",
-        job_location: "Banglore",
-        skills_needed: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-        link_to_apply: "bdfbidjfbvdbv",
-        applied: true,
+        name: "Microsoft",
+        role: "Software engineer intern",
+        jobDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        stipend: "125k",
+        jobLocation: "Banglore",
+        skills: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        linkToApply: "bdfbidjfbvdbv",
+
     },
     {
-        company_name: "google",
-        job_role: "Software engineer intern",
-        job_description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        monthly_stipend: "114k",
-        job_location: "Banglore",
-        skills_needed: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-        link_to_apply: "bdfbidjfbvdbv",
-        applied: true,
+        name: "Microsoft",
+        role: "Software engineer intern",
+        jobDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        stipend: "125k",
+        jobLocation: "Banglore",
+        skills: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        linkToApply: "bdfbidjfbvdbv",
+
     },
 ]
 
 
 const Notification = () => {
+    const navigate = useNavigate();
+    const user = useContext(AuthContext);
+    console.log(user);
+    if (user.user ===null){
+        navigate("/login");
+    }
+    const {data,loading,error,reFetch} = useFetch(`/company/getcompany`);
+    console.log(data);
+    const [Details, setDetails] = useState(details);
+    useEffect(() => {
+      setDetails(data);
+    }, [data])
+    
     return (
         <>
             <Sidebar />
-            {details.length == 0 ? <NoJob/> :
+            {Details.length == 0 ? <NoJob/> :
                 <div className='notification_cont'>
                     <div className='notification_heading'>
                         <div className="notification_icon"> <AiIcons.AiTwotoneBell size={30} /></div>
                         <div className='notification_head_text'>Job-Opportunities </div>
                     </div>
-                    {details.map((element) => {
+                    {Details.map((element) => {
                         return <div className='container-sm w-50 notification_details_cont' key={element.src}>
-                            <Notification_items key={element.link_to_apply} applied={element.applied} skills_needed={element.skills_needed} link_to_apply={element.link_to_apply} monthly_stipend={element.monthly_stipend} company_name={element.company_name} job_role={element.job_role} job_description={element.job_description} job_location={element.job_location} />
+                            <Notification_items key={element.linkToApply}  skills_needed={element.skills} link_to_apply={element.linkToApply} monthly_stipend={element.stipend} company_name={element.name} job_role={element.role} job_description={element.jobDescription} job_location={element.jobLocation} />
                         </div>
                     })}
                 </div>
@@ -63,7 +79,8 @@ const Notification = () => {
 }
 
 function Notification_items(props) {
-    let { company_name, job_role, job_description, monthly_stipend, job_location, skills_needed, link_to_apply, applied } = props;
+    let { company_name, job_role, job_description, monthly_stipend, job_location, skills_needed, link_to_apply } = props;
+    console.log(props);
     const capitalizeWords = (str) => {
         return str
             .toLowerCase()
@@ -71,7 +88,6 @@ function Notification_items(props) {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');
     };
-    console.log(applied);
     return (
         <>
 
@@ -103,7 +119,7 @@ function Notification_items(props) {
             </div>
 
             <div className='notification_detail_text apply_button_cont'>
-                <Link className={`btn btn-primary btn-sm apply_button ${applied ? "disabled" : "active"}`} to={link_to_apply} role="button">Apply</Link>
+                <Link className={`btn btn-primary btn-sm apply_button `} to={link_to_apply} role="button">Apply</Link>
             </div>
 
         </>

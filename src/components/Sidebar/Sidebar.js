@@ -72,6 +72,7 @@ const Sidebar = () => {
 
     const handleLogoutclk = (e) => {
         e.preventDefault();
+        console.log("hello");
         dispatch({ type: "LOGOUT" })
     }
 

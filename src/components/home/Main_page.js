@@ -1,7 +1,8 @@
-import React,{useEffect} from 'react'
+import React,{useContext, useEffect} from 'react'
 import './Main_page.css';
 import Company_page from './Company_page';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthContext';
 
 const datas = [
   {
@@ -23,6 +24,8 @@ const datas = [
 
 const Main_page = () => {
 
+  const {user} = useContext(AuthContext)
+
   useEffect(() => {
     let valueDisplays = document.querySelectorAll(".data_cont");
     let intervals = 1000;
@@ -40,9 +43,12 @@ const Main_page = () => {
       },duration)
     })
   }, [])
+
+  console.log(user);
   
 
   return (
+    
     <>
       <div className="main_page_container ">
         <div className="main_page_content">
@@ -61,7 +67,26 @@ const Main_page = () => {
                   <div className="avg_salary">30Lac</div> */}
 
           </div>
-          <Link to="/register" type="button" className="btn btn-outline-light register_button">Register Today!</Link>
+          {user ? 
+          <>
+             <div className='content_cont  d-flex justify-content-center'>
+                  <div className='main_page_text'>
+                  Welcome
+                  </div> 
+                  <div className='main_page_text2'>
+                    Back!
+                    </div>
+              </div>
+              <div className='content_cont1  d-flex justify-content-center'>
+                  <div className='main_page_text3'>
+                  {user.firstname}
+                  </div> 
+                  
+              </div>
+              
+              </>
+           :<Link to="/register" type="button" className="btn btn-outline-light register_button">Register Today!</Link>}
+          
         </div>
       </div>
       <Company_page />

@@ -18,7 +18,7 @@ export const getNotification = async(req,res,next)=>{
     try {
         const token = req.cookies.access_token;
         Jwt.verify(token , process.env.JWT , (err,user)=>{
-            if (err) return next(createError(403,"Token is not valid "));
+            if (err){console.log("error"); return next(createError(403,"Token is not valid "));}
             req.user = user;
         })
 

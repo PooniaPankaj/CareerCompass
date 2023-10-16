@@ -40,8 +40,7 @@ const details= [
     },
 ]
 
-
-const Notification = () => {
+const JobOpening = () => {
     const navigate = useNavigate();
     const user = useContext(AuthContext);
     console.log(user);
@@ -49,7 +48,7 @@ const Notification = () => {
         navigate("/login");
     }
     const {data,loading,error,reFetch} = useFetch(`/company/getcompany`);
-    console.log(data);
+    // console.log(data);
     const [Details, setDetails] = useState(details);
     useEffect(() => {
       setDetails(data);
@@ -66,7 +65,7 @@ const Notification = () => {
                     </div>
                     {Details.map((element) => {
                         return <div className='container-sm w-50 notification_details_cont' key={element.src}>
-                            <Notification_items key={element.linkToApply}  skills_needed={element.skills} link_to_apply={element.linkToApply} monthly_stipend={element.stipend} company_name={element.name} job_role={element.role} job_description={element.jobDescription} job_location={element.jobLocation} />
+                            <Jobopening_items key={element.linkToApply}  skills_needed={element.skills} link_to_apply={element.linkToApply} monthly_stipend={element.stipend} company_name={element.name} job_role={element.role} job_description={element.jobDescription} job_location={element.jobLocation} />
                         </div>
                     })}
                 </div>
@@ -78,7 +77,7 @@ const Notification = () => {
     )
 }
 
-function Notification_items(props) {
+function Jobopening_items(props) {
     let { company_name, job_role, job_description, monthly_stipend, job_location, skills_needed, link_to_apply } = props;
     console.log(props);
     const capitalizeWords = (str) => {
@@ -126,4 +125,4 @@ function Notification_items(props) {
     );
 }
 
-export default Notification
+export default JobOpening

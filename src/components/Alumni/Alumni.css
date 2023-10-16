@@ -232,7 +232,8 @@ article h4 {
   margin: 0 auto;
   margin-top: 2rem;
   line-height: 2;
-  color: hsl(210, 22%, 49%);
+  color: black;
+  font-family: 'poppins',sans-serif;
 }
 
 .prev,

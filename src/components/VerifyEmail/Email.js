@@ -8,6 +8,8 @@ const Email = () => {
     useEffect(() => {
         const verifyEmailUrl = async()=>{
             try {
+                console.log(params);
+
                 const url = `http://localhost:8800/api/user/${params.id}/verify/${params.token}`;
                 const {data} = await axios.get(url);
                 console.log(data);
@@ -24,7 +26,7 @@ const Email = () => {
     <>
 
     {validUrl?(
-        <div>
+        <div className='verify_mail'>
             verified
             <Link to="/login">
                 <button>Login</button>

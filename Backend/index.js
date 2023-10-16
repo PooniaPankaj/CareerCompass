@@ -41,6 +41,9 @@ mongoose.connection.on("connected",()=>{
 app.use(cookieParser())
 app.use(express.json());
 
+import cors from 'cors';
+app.use(cors({origin:"*"}))
+
 app.use("/api/auth",authRoute);
 app.use("/api/company",companyRoute);
 app.use("/api/user",userRoute);

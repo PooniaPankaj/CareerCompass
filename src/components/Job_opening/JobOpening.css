@@ -1,6 +1,10 @@
-
+body{
+    background-image: url("./job_opening2.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+}
 .notification_cont{
-    background-color: #EFEFEF;
+
     
      /* background-color: black; */
     display: flex;
@@ -10,10 +14,10 @@
     padding: 0px;
     margin: 0px;
     background-image: url("./job_opening2.jpg");
-    background-size: cover;
+    background-size:cover;
     background-attachment: fixed;
-    /* height: 100vh;
-    width: 100vw; */
+    height: 100%;
+    width: 100%;
     /* border: black solid; */
 }
 .notification_cont_no_job{
@@ -61,9 +65,31 @@
     flex-direction: column;
     border-radius: 10px;
 }
+
+.notification_details_cont1{
+    padding-top: 10px ;
+    /* margin: 20px; */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    font-family: 'Poppins',sans-serif;
+}
+
 .notification_details_text{
     display: flex;
     flex-direction: row;
+
+}
+
+.text_align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .notification_headline{
     font-family: 'Lato' ,sans-serif;

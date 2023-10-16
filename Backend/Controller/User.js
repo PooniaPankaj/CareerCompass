@@ -58,21 +58,21 @@ export const login = async(req,res,next)=>{
         if (!isPasswordCorrect)return next(createError(400,"Wrong Password or username"));
 
 
-        if (!user.verified){
-            let token1 = await Token.findOne({userId:user._id});
-            if (!token1){
+        // if (!user.verified){
+        //     let token1 = await Token.findOne({userId:user._id});
+        //     if (!token1){
 
-                token1 = await new Token({
-                    userId:user._id,
-                    token:crypto.randomBytes(32).toString("hex"),
-                }).save();
+        //         token1 = await new Token({
+        //             userId:user._id,
+        //             token:crypto.randomBytes(32).toString("hex"),
+        //         }).save();
         
-                const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`
-                await sendEmail(user.email,"Verify Email",url);
+        //         const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`
+        //         await sendEmail(user.email,"Verify Email",url);
 
-            }
-            return res.status(400).send({message:"An email has been sent please verify your account"});
-        }
+        //     }
+        //     return res.status(400).send({message:"An email has been sent please verify your account"});
+        // }
 
         const token = jwt.sign({id:user._id ,admin:user.admin},process.env.JWT)
         const {password , admin , ...otherDetails} = user._doc;
@@ -121,22 +121,27 @@ export const updateUser = async(req,res,next)=>{
 
 export const verifyEmail = async(req,res,next)=>{
     try {
+        // console.log(req.params.id);
         const user = await User.findOne({_id:req.params.id});
+        // console.log(user);
         if (!user){
             return res.status(404).send({message:"Invalid Link"})
         }
-
+        // console.log("hello1");
         const token = await Token.findOne({
             userId:user._id,
             token:req.params.token
         });
+        // console.log("hello2");
         if (!token){
             return res.status(404).send({message:"Invalid Link"})
         }
-
-        await User.updateOne({_id:user.id,verified:true});
-        await token.remove()
-
+        // console.log("hello3");
+        // await User.updateOne({_id:user.id,verified:true});
+        await User.findByIdAndUpdate(user._id,{$set:{verified:1}},{new :true})
+        // console.log("hello4");
+        await Token.findByIdAndDelete(token._id);
+        // console.log("hello5");
         res.status(200).send("Email has been verified successfully!")
         
     } catch (error) {

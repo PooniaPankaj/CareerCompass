@@ -1,3 +1,21 @@
 .verify_mail{
+    height: 100vh;
+    width: 100vw;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'poppins',sans-serif;
+}
+.verified_image{
+    background-image: url("./sl_122021_47430_11.jpg");
+    width: 500px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.verified_text{
+    font-size: 2rem;
+    color: green;
 }

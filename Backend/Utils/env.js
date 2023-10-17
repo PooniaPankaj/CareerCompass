@@ -1,8 +1,8 @@
 export const EMAIL = {
-    EMAIL : 'pankaj0703poonia@gmail.com',
+    EMAIL : 'pankajpoonia0703@gmail.com',
     
 }
 export const PASSWORD = {
-    PASSWORD:'ynqdotzydiiycsdd'
+    PASSWORD:'bjhrlzirdvbdyrwb'
     // PASSWORD:'sxczliivmiocugrj',
 }

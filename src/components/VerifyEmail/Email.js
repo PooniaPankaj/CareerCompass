@@ -4,7 +4,7 @@ import "./Email.css"
 import axios from "axios";
 const Email = () => {
     const params = useParams();
-    const [validUrl, setvalidUrl] = useState(false);
+    const [validUrl, setvalidUrl] = useState(1);
     useEffect(() => {
         const verifyEmailUrl = async()=>{
             try {
@@ -27,9 +27,15 @@ const Email = () => {
 
     {validUrl?(
         <div className='verify_mail'>
+            <div className='verified_image'>
+
+            </div>
+            <div className="verified_text">
             verified
-            <Link to="/login">
-                <button>Login</button>
+            </div>
+            
+            <Link  to="/login">
+                <button type='button'  className="btn btn-outline-success" >Login</button>
             </Link>
         </div>
     ):

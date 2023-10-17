@@ -21,6 +21,8 @@ function App() {
             <Route exact strict path="/notification" element={ <Notification /> } />
             <Route exact strict path='/JobOpening' element = {<JobOpening/>} />
             <Route  exact strict path='/users/:id/verify/:token' element = {<Email/>} />
+            <Route  exact strict path='/email' element = {<Email/>} />
+            
       </Routes>
     </div>
     

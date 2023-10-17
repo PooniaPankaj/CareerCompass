@@ -24,7 +24,7 @@ export const register = async(req,res,next)=>{
             firstname:req.body.firstname,
             lastname:req.body.lastname,
             phoneNumber:req.body.phoneNumber,
-            email:req.body.email,
+            email:req.body.email.toLowerCase(),
             batch:req.body.batch,
             branch:req.body.branch,
             password:hash,
@@ -42,7 +42,7 @@ export const register = async(req,res,next)=>{
         console.log("hello");
         const url = `${process.env.BASE_URL}users/${user._id}/verify/${token1.token}`
         console.log(url);
-        await sendEmail(user.email,"Verify Email",url);
+        await sendEmail(user.email,"Verify Email",url,user.firstname);
         res.status(201).json("An email sent to your account please verify !");
 
     }
@@ -52,27 +52,27 @@ export const register = async(req,res,next)=>{
 }
 export const login = async(req,res,next)=>{
     try {
-        const user =await User.findOne({email:req.body.email});
+        const user =await User.findOne({email:req.body.email.toLowerCase()});
         if (!user) return next(createError(400,"Wrong Password or username"));
         const isPasswordCorrect = await bcrypt.compareSync(req.body.password  , user.password);
         if (!isPasswordCorrect)return next(createError(400,"Wrong Password or username"));
 
 
-        // if (!user.verified){
-        //     let token1 = await Token.findOne({userId:user._id});
-        //     if (!token1){
+        if (!user.verified){
+            let token1 = await Token.findOne({userId:user._id});
+            if (!token1){
 
-        //         token1 = await new Token({
-        //             userId:user._id,
-        //             token:crypto.randomBytes(32).toString("hex"),
-        //         }).save();
+                token1 = await new Token({
+                    userId:user._id,
+                    token:crypto.randomBytes(32).toString("hex"),
+                }).save();
         
-        //         const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`
-        //         await sendEmail(user.email,"Verify Email",url);
+                const url = `${process.env.BASE_URL}users/${user._id}/verify/${token.token}`
+                await sendEmail(user.email,"Verify Email",url,user.firstname);
 
-        //     }
-        //     return res.status(400).send({message:"An email has been sent please verify your account"});
-        // }
+            }
+            return res.status(400).send({message:"An email has been sent please verify your account"});
+        }
 
         const token = jwt.sign({id:user._id ,admin:user.admin},process.env.JWT)
         const {password , admin , ...otherDetails} = user._doc;

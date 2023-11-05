@@ -27,7 +27,9 @@ const UserSchema = new mongoose.Schema({
         {
             jobid : String,
             role : String,
-        }
+            // default:"None"
+        },
+        
     ],
     branch:{
         type:String,
@@ -37,7 +39,8 @@ const UserSchema = new mongoose.Schema({
         {
             jobid:String,
             role:String,
-        }
+            // default:"None"
+        },
     ],
     admin:{
         type:Boolean,
@@ -50,9 +53,19 @@ const UserSchema = new mongoose.Schema({
     verified:{
         type:Boolean,
         default:false,
+    },
+    image:{
+        type:String,
+        default:"https://image.emojisky.com/862/5891862-middle.png",
+    },
+    collegeName:{
+        type:String,
+        default:"IIT Mandi"
+    },
+    gender:{
+        type:String,
+        required:true,
     }
-
-
 },{
     timestamps:true
 })

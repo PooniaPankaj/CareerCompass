@@ -8,6 +8,7 @@ import JobOpening from './components/Job_opening/JobOpening.js';
 import MyProfile from './components/Profile/MyProfile';
 import Register from './components/Register/Register';
 import Email from './components/VerifyEmail/Email';
+import GoToTop from './components/Gototop/GoToTop';
 function App() {
   return (
     <div>
@@ -24,6 +25,7 @@ function App() {
             <Route  exact strict path='/email' element = {<Email/>} />
             
       </Routes>
+      <GoToTop/>
     </div>
     
   );

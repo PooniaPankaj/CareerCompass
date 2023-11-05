@@ -20,7 +20,7 @@ const Register = () => {
         batch:undefined,
         branch:undefined,
         token:undefined,
-
+        gender:undefined,
         password: undefined
     });
     const handleChange = (e) => {
@@ -32,9 +32,10 @@ const Register = () => {
 
         try {
             setLoading(true);
-            const res = await axios.post("/auth/register",credentials)
+            const {data} = await axios.post("/auth/register",credentials)
+            console.log(data.message);
             setLoading(false);
-            setmsg(res.message);
+            setmsg(data.message);
             // navigate("/login");
             
         } catch (error) {
@@ -51,15 +52,17 @@ const Register = () => {
             
             <div className="lContainer">
                 <div className="heading"><FaIcons.FaMountain size={30}/>CareerCompass</div>
-                <input type="text" placeholder="First Name " id="firstname" name="firstname" onChange={handleChange} className="lInput"></input>
-                <input type="text" placeholder="Last Name " id="lastname" name="lastname" onChange={handleChange}  className="lInput"></input>
-                <input type="text" placeholder="Educational Email ID " id="email" name="email" onChange={handleChange} className="lInput"></input>
-                <input type="text" placeholder="Phone Number " id="phoneNumber" name="phoneNumber" onChange={handleChange} className="lInput"></input>
-                <input type="number" placeholder="Batch" id="batch" name="batch" onChange={handleChange} className="lInput"></input>
-                <input type="text" placeholder="Branch" id="branch" name="branch" onChange={handleChange} className="lInput"></input>
+                <input type="text" placeholder="First Name " id="firstname" name="firstname" onChange={handleChange} className="lInput" required></input>
+                <input type="text" placeholder="Last Name " id="lastname" name="lastname" onChange={handleChange}  className="lInput"required></input>
+                <input type="text" placeholder="Gender " id="gender" name="gender" onChange={handleChange}  className="lInput"required></input>
+                <input type="text" placeholder="Collage Name " id="collegeName" name="collegeName" onChange={handleChange}  className="lInput"required></input>
+                <input type="text" placeholder="Educational Email ID " id="email" name="email" onChange={handleChange} className="lInput"required></input>
+                <input type="text" placeholder="Phone Number " id="phoneNumber" name="phoneNumber" onChange={handleChange} className="lInput"required></input>
+                <input type="number" placeholder="Batch" id="batch" name="batch" onChange={handleChange} className="lInput"required></input>
+                <input type="text" placeholder="Branch" id="branch" name="branch" onChange={handleChange} className="lInput"required></input>
                 <input type="number" placeholder="Enter Token (optional)" id="token" name="token" onChange={handleChange} className="lInput"></input>
                 
-                <input type="password" placeholder="Enter Password " id="password" name="password" onChange={handleChange} className="lInput"></input>
+                <input type="password" placeholder="Enter Password " id="password" name="password" onChange={handleChange} className="lInput"required></input>
                 <button type="button" onClick={handleClick} className="btn btn-outline-light">Register</button>
                 <div className=''>or</div>
                 <Link   to='/login'>Login </Link>

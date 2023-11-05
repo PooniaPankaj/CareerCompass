@@ -1,0 +1,27 @@
+.addNewNotif{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 20px;
+    font-family: 'Lato',sans-serif;
+    font-size: large;
+}
+.notification_details_cont1{
+    border: black solid 2px;
+    margin: 10px;
+}
+.notifcont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: space-around; */
+}
+.trash_can{
+    cursor: pointer;
+    /* color: red; */
+}
+.trash_can:hover{
+    color: red;
+
+}

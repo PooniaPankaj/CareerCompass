@@ -23,9 +23,12 @@ export const register = async(req,res,next)=>{
         const newUser = new User({
             firstname:req.body.firstname,
             lastname:req.body.lastname,
-            phoneNumber:req.body.phoneNumber,
             email:req.body.email.toLowerCase(),
+            phoneNumber:req.body.phoneNumber,
             batch:req.body.batch,
+            image:req.body.image,
+            collegeName:req.body.collegeName,
+            gender:req.body.gender,
             branch:req.body.branch,
             password:hash,
             admin:Admin,
@@ -39,11 +42,11 @@ export const register = async(req,res,next)=>{
             userId:user._id,
             token:crypto.randomBytes(32).toString("hex"),
         }).save();
-        console.log("hello");
+
         const url = `${process.env.BASE_URL}users/${user._id}/verify/${token1.token}`
         console.log(url);
         await sendEmail(user.email,"Verify Email",url,user.firstname);
-        res.status(201).json("An email sent to your account please verify !");
+        res.status(201).json({message:"An email has been sent please verify your account"});
 
     }
     catch(error){
@@ -79,7 +82,7 @@ export const login = async(req,res,next)=>{
         // console.log(token);
         res.cookie("access_token",token,{
             httpOnly:true, // doesn't allow any client secret to reach this cookie
-        }).status(201).json({...otherDetails});
+        }).status(201).json({...otherDetails,admin});
 
     } catch (error) {
         next(error);

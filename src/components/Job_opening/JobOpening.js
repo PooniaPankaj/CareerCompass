@@ -7,6 +7,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import NoJob from './NoJob';
 import { AuthContext } from '../Context/AuthContext';
 import useFetch from '../Hooks/UseFetch';
+import AddJob from './AddJob';
 const details= [
     {
         name: "Microsoft",
@@ -43,15 +44,21 @@ const details= [
 const JobOpening = () => {
     const navigate = useNavigate();
     const user = useContext(AuthContext);
-    console.log(user);
+
+    // console.log(user.user.admin);  
+    // console.log("hello")
     if (user.user ===null){
         navigate("/login");
     }
     const {data,loading,error,reFetch} = useFetch(`/company/getcompany`);
     // console.log(data);
     const [Details, setDetails] = useState(details);
+    const [admin, setadmin] = useState(false);
+    const [open, setopen] = useState(false);
+
     useEffect(() => {
       setDetails(data);
+      setadmin(user.user.admin);
     }, [data])
     
     return (
@@ -70,8 +77,18 @@ const JobOpening = () => {
                     })}
                 </div>
             }
+            {admin &&
+            <div className='addNewJob'>
+                <div className='btn btn-primary btn-sm addjob ' onClick={()=>setopen(true)}>
+                    + Job
+                </div>
+                
+            </div>
 
+            }
 
+            {open && <AddJob setopen={setopen}/>}
+            
 
         </>
     )

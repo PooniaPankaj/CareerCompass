@@ -8,7 +8,7 @@ export const addNotification = async(req,res,next)=>{
             msg:req.body.msg
         })
         await newNotification.save();
-        res.status(201).send("New notification message added!");
+        res.status(201).send(newNotification);
     } catch (error) {
         next(error);
     }
@@ -27,6 +27,17 @@ export const getNotification = async(req,res,next)=>{
         const allnotification = await Notification.find({batch:usr_.batch});
         res.status(200).json(allnotification);
         
+    } catch (error) {
+        next(error);
+    }
+}
+export const deleteNotification = async(req,res,next)=>{
+    try {
+        console.log("hekki",req.params.id);
+
+        await Notification.findByIdAndDelete(req.params.id);
+        res.status(201).send("Notification has been removed");
+
     } catch (error) {
         next(error);
     }
